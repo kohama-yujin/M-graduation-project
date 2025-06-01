@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "wH5CnhQu+gU=",
+  "success": true,
+  "projectFilePath": "\\\\wsl.localhost\\Ubuntu\\home\\etern\\M-graduation-project\\ConnectMQ3andOvrUDPTest\\UdpReceiverTest\\UdpReceiverTest.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\etern\\.nuget\\packages\\sixlabors.imagesharp\\3.1.8\\sixlabors.imagesharp.3.1.8.nupkg.sha512"
+  ],
+  "logs": []
+}
