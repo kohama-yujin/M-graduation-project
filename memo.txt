@@ -1,0 +1,14 @@
+SDKのコマンドライン
+PS C:\> cd '.\Program Files\Unity\Hub\Editor\6000.1.1f1\Editor\Data\PlaybackEngines\AndroidPlayer\SDK\cmdline-tools\16.0\bin'
+
+SDK一覧
+PS C:\> sdkmanager --list
+PS C:\> sdkmanager --list | Select-String "platforms;android"
+結果の2列目が 2 のものはインストール済み
+
+インストール
+PS C:\> sdkmanager "platforms;android-36"
+
+更新
+PS C:\> sdkmanager --update
+

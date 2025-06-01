@@ -1,0 +1,17 @@
+\\wsl.localhost\Ubuntu\home\etern\M-graduation-project\ConnectMQ3andOvrUDPTest\TestApp\bin\Debug\net9.0\TestApp.exe
+\\wsl.localhost\Ubuntu\home\etern\M-graduation-project\ConnectMQ3andOvrUDPTest\TestApp\bin\Debug\net9.0\TestApp.deps.json
+\\wsl.localhost\Ubuntu\home\etern\M-graduation-project\ConnectMQ3andOvrUDPTest\TestApp\bin\Debug\net9.0\TestApp.runtimeconfig.json
+\\wsl.localhost\Ubuntu\home\etern\M-graduation-project\ConnectMQ3andOvrUDPTest\TestApp\bin\Debug\net9.0\TestApp.dll
+\\wsl.localhost\Ubuntu\home\etern\M-graduation-project\ConnectMQ3andOvrUDPTest\TestApp\bin\Debug\net9.0\TestApp.pdb
+\\wsl.localhost\Ubuntu\home\etern\M-graduation-project\ConnectMQ3andOvrUDPTest\TestApp\obj\Debug\net9.0\TestApp.GeneratedMSBuildEditorConfig.editorconfig
+\\wsl.localhost\Ubuntu\home\etern\M-graduation-project\ConnectMQ3andOvrUDPTest\TestApp\obj\Debug\net9.0\TestApp.AssemblyInfoInputs.cache
+\\wsl.localhost\Ubuntu\home\etern\M-graduation-project\ConnectMQ3andOvrUDPTest\TestApp\obj\Debug\net9.0\TestApp.AssemblyInfo.cs
+\\wsl.localhost\Ubuntu\home\etern\M-graduation-project\ConnectMQ3andOvrUDPTest\TestApp\obj\Debug\net9.0\TestApp.csproj.CoreCompileInputs.cache
+\\wsl.localhost\Ubuntu\home\etern\M-graduation-project\ConnectMQ3andOvrUDPTest\TestApp\obj\Debug\net9.0\TestApp.dll
+\\wsl.localhost\Ubuntu\home\etern\M-graduation-project\ConnectMQ3andOvrUDPTest\TestApp\obj\Debug\net9.0\refint\TestApp.dll
+\\wsl.localhost\Ubuntu\home\etern\M-graduation-project\ConnectMQ3andOvrUDPTest\TestApp\obj\Debug\net9.0\TestApp.pdb
+\\wsl.localhost\Ubuntu\home\etern\M-graduation-project\ConnectMQ3andOvrUDPTest\TestApp\obj\Debug\net9.0\TestApp.genruntimeconfig.cache
+\\wsl.localhost\Ubuntu\home\etern\M-graduation-project\ConnectMQ3andOvrUDPTest\TestApp\obj\Debug\net9.0\ref\TestApp.dll
+\\wsl.localhost\Ubuntu\home\etern\M-graduation-project\ConnectMQ3andOvrUDPTest\TestApp\bin\Debug\net9.0\SixLabors.ImageSharp.dll
+\\wsl.localhost\Ubuntu\home\etern\M-graduation-project\ConnectMQ3andOvrUDPTest\TestApp\obj\Debug\net9.0\TestApp.csproj.AssemblyReference.cache
+\\wsl.localhost\Ubuntu\home\etern\M-graduation-project\ConnectMQ3andOvrUDPTest\TestApp\obj\Debug\net9.0\TestApp.csproj.Up2Date
