@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("UdpReceiverTest")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6ec62b47b983b23b44ff93916c9f4a93697ee110")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9c443de6b746df3b8809c637e623dc624ede0cef")]
 [assembly: System.Reflection.AssemblyProductAttribute("UdpReceiverTest")]
 [assembly: System.Reflection.AssemblyTitleAttribute("UdpReceiverTest")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -4,8 +4,9 @@ import time
 import struct
 
 # UDP設定
-# ip = "133.15.35.42"  # 受信側のIPアドレス
-ip = "127.0.0.1"
+# ip = "133.15.35.72"  # 受信側のIPアドレス
+ip = "192.168.2.155"  # 受信側のIPアドレス
+# ip = "127.0.0.1"  # ローカルアドレス
 port = 12345  # 受信側と合わせる
 CHUNK_SIZE = 4096  # 4KBずつ送信
 
@@ -35,6 +36,9 @@ try:
             sock.sendto(pkt, (ip, port))
             time.sleep(0.001)  # 送信間隔を少し空けると安定しやすい
         print(f"Frame sent successfully!")
+
+        time.sleep(0.001)
+        # break
 
 finally:
     cap.release()

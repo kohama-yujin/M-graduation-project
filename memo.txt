@@ -12,3 +12,6 @@ PS C:\> sdkmanager "platforms;android-36"
 更新
 PS C:\> sdkmanager --update
 
+仮想環境
+etern@yoyoYoga:~/M-graduation-project$ source graduation_env/bin/activate
+etern@yoyoYoga:~/M-graduation-project$ deactivate
