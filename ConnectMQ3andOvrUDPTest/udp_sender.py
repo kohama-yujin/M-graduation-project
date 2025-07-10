@@ -4,8 +4,8 @@ import time
 import struct
 
 # UDP設定
-# ip = "133.15.35.72"  # 受信側のIPアドレス
-ip = "192.168.2.155"  # 受信側のIPアドレス
+ip = "133.15.35.66"  # 受信側のIPアドレス
+# ip = "192.168.2.155"  # 受信側のIPアドレス
 # ip = "127.0.0.1"  # ローカルアドレス
 port = 12345  # 受信側と合わせる
 CHUNK_SIZE = 4096  # 4KBずつ送信
@@ -19,8 +19,17 @@ try:
         if not ret:
             break
 
+        # VideoCaptureは8bitが限界
+        # 本来の16bitを8bitに圧縮して取得（重なる）
+        # 上位8bit：左目のグレイスケール
+        # 下位8bit：右目のBayer
+        unit8 = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+
+        # Bayer補間でカラー化
+        color = cv2.cvtColor(unit8, cv2.COLOR_BAYER_GB2BGR)
+
         # JPEG圧縮
-        _, encoded_img = cv2.imencode(".jpg", frame)
+        _, encoded_img = cv2.imencode(".jpg", color)
         data = encoded_img.tobytes()
 
         # パケット数を先に送信
@@ -35,11 +44,10 @@ try:
             pkt = struct.pack("!I", i) + chunk  #  # パケット番号を付加
             sock.sendto(pkt, (ip, port))
             time.sleep(0.001)  # 送信間隔を少し空けると安定しやすい
-        print(f"Frame sent successfully!")
 
         time.sleep(0.001)
-        # break
 
 finally:
+    print(frame.dtype, frame.shape)
     cap.release()
     sock.close()

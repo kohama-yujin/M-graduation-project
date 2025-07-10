@@ -1,3 +1,8 @@
+C# 実行コマンド
+dotnet new console -o TestApp
+cd TestApp
+dotnet run
+
 SDKのコマンドライン
 PS C:\> cd '.\Program Files\Unity\Hub\Editor\6000.1.1f1\Editor\Data\PlaybackEngines\AndroidPlayer\SDK\cmdline-tools\16.0\bin'
 

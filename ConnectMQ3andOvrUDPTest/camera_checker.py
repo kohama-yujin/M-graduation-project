@@ -18,9 +18,9 @@ while True:
     unit8 = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
     # Bayer補間でカラー化
-    color_right = cv2.cvtColor(unit8, cv2.COLOR_BAYER_GB2BGR)
+    color = cv2.cvtColor(unit8, cv2.COLOR_BAYER_GB2BGR)
 
-    cv2.imshow("Right Eye - Color Only", color_right)
+    cv2.imshow("Right Eye - Color Only", frame)
 
     # cv2.imshow("Ovrvision Camera", frame)
     if cv2.waitKey(1) == 27:  # ESCキーで終了
