@@ -10,7 +10,9 @@ class CameraCalibrator:
     チェスボードパターンを使ってキャリブレーションを行う
     """
 
-    def __init__(self, cols, rows, square_size, image_dir, save_path):
+    def __init__(
+        self, cols, rows, square_size, image_dir, save_path, length=5.0, thickness=2
+    ):
         """
         Parameters:
             cols (int): チェスボードの列数（内側の交点数）
@@ -18,13 +20,19 @@ class CameraCalibrator:
             square_size (float): マスの1辺の実際の長さ（cm）
             image_dir: 入力画像のフォルダパス
             save_path: キャリブレーション結果の保存パス
+            length (float): 描画する座標軸の長さ（cm）
+            thickness (int): 描画する座標軸の太さ
         """
 
         # チェスボードのサイズとマスのサイズを設定
         self.chessboard_size = (cols, rows)
         self.square_size = square_size
+        # 入力画像のディレクトリと保存パス
         self.image_dir = image_dir
         self.save_path = save_path
+        # 座標軸の長さと太さ
+        self.length = length
+        self.thickness = thickness
 
         # チェスボードの3D座標を生成
         objp = np.zeros((cols * rows, 3), np.float32)  # 3D座標を格納する配列
@@ -40,15 +48,16 @@ class CameraCalibrator:
         self.camera_matrix = None  # カメラ行列
         self.dist_coeffs = None  # 歪み係数
 
+        # 外部パラメータ
+        self.rvec = None  # 回転ベクトル
+        self.tvec = None  # 平行移動ベクトル
+        self.R = None  # 回転行列
+
+        # self.result_image = None  # 軸を描画した画像
+
     def calibrate(self):
         """
-        キャリブレーションを実行する関数
-        """
-        pass
-
-    def get_intrinsic_parameters(self):
-        """
-        内部パラメータを取得する関数
+        カメラキャリブレーションを実行する関数
         """
 
         # キャリブレーション画像の読み込み
@@ -64,11 +73,11 @@ class CameraCalibrator:
                 self.objpoints.append(self.objp)
                 self.imgpoints.append(corners)
 
-                # コーナー描画（確認用）
-                cv2.drawChessboardCorners(img, self.chessboard_size, corners, ret)
-                cv2.imshow("Corners", img)
-                cv2.waitKey(0)
-        cv2.destroyAllWindows()
+                # # コーナー描画（確認用）
+                # cv2.drawChessboardCorners(img, self.chessboard_size, corners, ret)
+                # cv2.imshow("Corners", img)
+                # cv2.waitKey(0)
+        # cv2.destroyAllWindows()
 
         # キャリブレーション
         ret, camera_matrix, dist_coeffs, rvecs, tvecs = cv2.calibrateCamera(
@@ -81,6 +90,102 @@ class CameraCalibrator:
         if ret:
             self.camera_matrix = camera_matrix
             self.dist_coeffs = dist_coeffs
+
+    def estimate_pose(self, img):
+        """
+        カメラ姿勢推定を行う関数
+        Parameters:
+            img: カメラ姿勢推定を行いたい画像
+        """
+
+        gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+        # チェスボード検出
+        ret, corners = cv2.findChessboardCorners(gray, self.chessboard_size, None)
+        if ret:
+            print("チェスボードのコーナーが検出されました。")
+            success, rvec, tvec = cv2.solvePnP(
+                self.objp, corners, self.camera_matrix, self.dist_coeffs
+            )
+
+            if success:
+                # 回転行列に変換
+                R, _ = cv2.Rodrigues(rvec)
+
+                self.rvec = rvec
+                self.tvec = tvec
+                self.R = R
+                self.result_image = img.copy()
+
+    def save_dat(self):
+        """
+        キャリブレーション結果を.datファイルに保存する関数
+        """
+        if (
+            self.camera_matrix is not None
+            and self.R is not None
+            and self.tvec is not None
+        ):
+            dat_path = os.path.join(self.save_path, "K.dat")
+            with open(dat_path, "w") as f:
+                np.savetxt(f, self.camera_matrix, fmt="%.6f")
+                print("内部パラメータを保存しました:", dat_path)
+
+            dat_path = os.path.join(self.save_path, "R.dat")
+            with open(dat_path, "w") as f:
+                np.savetxt(f, self.R, fmt="%.6f")
+                print("回転行列を保存しました:", dat_path)
+
+            dat_path = os.path.join(self.save_path, "t.dat")
+            with open(dat_path, "w") as f:
+                np.savetxt(f, self.tvec, fmt="%.6f")
+                print("並進ベクトルを保存しました:", dat_path)
+
+    def draw_axis(self):
+        """
+        カメラ座標系における座標軸 (X:赤, Y:緑, Z:青) を描画する
+        Returns:
+            描画された画像
+        """
+
+        # 座標軸の3D座標（原点、X軸先端、Y軸先端、Z軸先端）
+        axis_3d = np.float32(
+            [
+                [0, 0, 0],  # 原点
+                [self.length, 0, 0],  # X軸
+                [0, self.length, 0],  # Y軸
+                [0, 0, self.length],  # Z軸
+            ]
+        )
+
+        if (
+            self.camera_matrix is not None
+            and self.dist_coeffs is not None
+            and self.rvec is not None
+            and self.tvec is not None
+        ):
+            # 2D画像上の座標に投影
+            imgpts, _ = cv2.projectPoints(
+                axis_3d, self.rvec, self.tvec, self.camera_matrix, self.dist_coeffs
+            )
+
+            # 座標をintに変換
+            imgpts = np.int32(imgpts).reshape(-1, 2)
+
+            # 線を描画
+            origin = imgpts[0]
+            cv2.line(
+                self.result_image, origin, imgpts[1], (0, 0, 255), self.thickness
+            )  # X軸（赤）
+            cv2.line(
+                self.result_image, origin, imgpts[2], (0, 255, 0), self.thickness
+            )  # Y軸（緑）
+            cv2.line(
+                self.result_image, origin, imgpts[3], (255, 0, 0), self.thickness
+            )  # Z軸（青）
+
+            return (True, self.result_image)
+        return (False, None)  # カメラパラメータが未設定の場合はNoneを返す
 
 
 if __name__ == "__main__":
@@ -105,27 +210,57 @@ if __name__ == "__main__":
         help="Directory of calibration images",
     )
     parser.add_argument(
-        "--save_path",
+        "--save_dat_path",
         type=str,
         required=True,
-        help="Path to save calibration result",
+        help="Path to save calibration result (.dat files)",
+    )
+
+    # 以下、オプション入力
+    parser.add_argument(
+        "--length",
+        type=float,
+        default=5.0,
+        help="Length of the axis to draw (default: 5.0 cm)",
+    )
+    parser.add_argument(
+        "--thickness",
+        type=int,
+        default=2,
+        help="Thickness of the axis lines (default: 2)",
     )
 
     args = parser.parse_args()
 
     calibrator = CameraCalibrator(
+        # 必須引数を渡す
         cols=args.cols,
         rows=args.rows,
         square_size=args.square_size,
         image_dir=args.image_dir,
-        save_path=args.save_path,
+        save_path=args.save_dat_path,
+        # オプション引数を渡す
+        length=args.length,
+        thickness=args.thickness,
     )
 
-    # 内部パラメータ（）の計算
-    calibrator.get_intrinsic_parameters()
-    print(calibrator.camera_matrix)
+    # キャリブレーションを実行（内部パラメータを求める）
+    calibrator.calibrate()
+    print("カメラ内部パラメータ", calibrator.camera_matrix)
+    print("歪み係数", calibrator.dist_coeffs)
 
-    # calibrator.calibrate()
-    # calibrator.print_result()
-    # calibrator.save(args.save_path)
-    # print(f"\nCalibration data saved to '{args.save_path}'")
+    # カメラの姿勢推定を実行
+    img = cv2.imread("./input.jpg")
+    calibrator.estimate_pose(img)
+    print("回転ベクトル (rvec):\n", calibrator.rvec)
+    print("並進ベクトル (tvec):\n", calibrator.tvec)
+    print("回転行列 (R):\n", calibrator.R)
+
+    # # キャリブレーション結果を.datファイルに保存
+    # calibrator.save_dat()
+
+    # 座標軸を描画して表示
+    ret, img = calibrator.draw_axis()
+    if ret:
+        cv2.imshow("Axis", img)
+        cv2.waitKey(0)
