@@ -37,6 +37,19 @@ app.set_mqo_model(model)
 # アプリケーションのメインループ
 while not app.glwindow.window_should_close():
     app.display_func(app.glwindow.window)
+
+    # 以下、ボックスの開閉
+    if model.meshes[0].vertices[8].z <= -20 and model.meshes[0].vertices[9].z <= -20:
+        close = True
+    if model.meshes[0].vertices[8].z >= -15 and model.meshes[0].vertices[9].z >= -15:
+        close = False
+    if close:
+        model.meshes[0].vertices[8].z += 0.1
+        model.meshes[0].vertices[9].z += 0.1
+    else:
+        model.meshes[0].vertices[8].z -= 0.1
+        model.meshes[0].vertices[9].z -= 0.1
+
     glfw.poll_events()
 
 glfw.terminate()
