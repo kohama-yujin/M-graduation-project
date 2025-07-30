@@ -1,0 +1,390 @@
+{
+    "AI Models": {
+        "info": [
+            "MULTI CLASS MEDIUM DETECTION is not optimized",
+            "MULTI CLASS ACCURATE DETECTION is not optimized",
+            "HUMAN BODY FAST DETECTION is not optimized",
+            "HUMAN BODY MEDIUM DETECTION is not optimized",
+            "HUMAN BODY ACCURATE DETECTION is not optimized",
+            "HUMAN BODY 38 FAST DETECTION is not optimized",
+            "HUMAN BODY 38 MEDIUM DETECTION is not optimized",
+            "HUMAN BODY 38 ACCURATE DETECTION is not optimized",
+            "PERSON HEAD DETECTION is not optimized",
+            "PERSON HEAD ACCURATE DETECTION is not optimized",
+            "REID ASSOCIATION is not optimized",
+            "NEURAL LIGHT DEPTH is not optimized",
+            "NEURAL DEPTH is not optimized",
+            "NEURAL PLUS DEPTH is not optimized"
+        ],
+        "valid": [
+            "MULTI CLASS DETECTION is optimized"
+        ]
+    },
+    "Camera Test": {
+        "InternalDevicesCount (GMSL)": 0,
+        "InternalDevicesCount (USB)": 2,
+        "ZEDCount": 1,
+        "ZEDs": [
+        ],
+        "camera": {
+            "Device ID": 0,
+            "Firmware": 1523,
+            "Init Output": "OK",
+            "Model": "ZED Mini",
+            "Serial Number": 18034786,
+            "valid": [
+                "<b>Camera: </b>ZED Mini",
+                "<b>Firmware: </b>1523"
+            ]
+        },
+        "resolutions": {
+            "HD1080@15": {
+                "fps (input)": 15,
+                "fps (output)": 15,
+                "height (input)": 1080,
+                "height (output)": 1080,
+                "initialization": "OK",
+                "status": true,
+                "width (input)": 1920,
+                "width (output)": 1920
+            },
+            "HD1080@30": {
+                "fps (input)": 30,
+                "fps (output)": 30,
+                "height (input)": 1080,
+                "height (output)": 1080,
+                "initialization": "OK",
+                "status": true,
+                "width (input)": 1920,
+                "width (output)": 1920
+            },
+            "HD2K@15": {
+                "fps (input)": 15,
+                "fps (output)": 15,
+                "height (input)": 1242,
+                "height (output)": 1242,
+                "initialization": "OK",
+                "status": true,
+                "width (input)": 2208,
+                "width (output)": 2208
+            },
+            "HD720@15": {
+                "fps (input)": 15,
+                "fps (output)": 15,
+                "height (input)": 720,
+                "height (output)": 720,
+                "initialization": "OK",
+                "status": true,
+                "width (input)": 1280,
+                "width (output)": 1280
+            },
+            "HD720@30": {
+                "fps (input)": 30,
+                "fps (output)": 30,
+                "height (input)": 720,
+                "height (output)": 720,
+                "initialization": "OK",
+                "status": true,
+                "width (input)": 1280,
+                "width (output)": 1280
+            },
+            "HD720@60": {
+                "dropCount": -1,
+                "fps (input)": 60,
+                "fps (output)": 60,
+                "height (input)": 720,
+                "height (output)": 720,
+                "imageCount": 502,
+                "initialization": "OK",
+                "status": true,
+                "tearingCount": 0,
+                "width (input)": 1280,
+                "width (output)": 1280
+            },
+            "VGA@100": {
+                "fps (input)": 100,
+                "fps (output)": 97,
+                "height (input)": 376,
+                "height (output)": 376,
+                "initialization": "OK",
+                "status": true,
+                "width (input)": 672,
+                "width (output)": 672
+            },
+            "VGA@15": {
+                "fps (input)": 15,
+                "fps (output)": 15,
+                "height (input)": 376,
+                "height (output)": 376,
+                "initialization": "OK",
+                "status": true,
+                "width (input)": 672,
+                "width (output)": 672
+            },
+            "VGA@30": {
+                "fps (input)": 30,
+                "fps (output)": 30,
+                "height (input)": 376,
+                "height (output)": 376,
+                "initialization": "OK",
+                "status": true,
+                "width (input)": 672,
+                "width (output)": 672
+            },
+            "VGA@60": {
+                "fps (input)": 60,
+                "fps (output)": 60,
+                "height (input)": 376,
+                "height (output)": 376,
+                "initialization": "OK",
+                "status": true,
+                "width (input)": 672,
+                "width (output)": 672
+            }
+        },
+        "sensors": {
+            "Firmware": 517,
+            "Init Output": "OK",
+            "Model": "ZED Mini (MCU)",
+            "Serial Number": 18034786
+        }
+    },
+    "Devices": {
+        "ASMediaFound": false,
+        "CorruptedFirmware": false,
+        "MCUDetected": true,
+        "OC_Cam_Detected": false,
+        "OtherUSBDevices": [
+        ],
+        "USBList": [
+            {
+                "USB_path": "/8/4",
+                "idProduct": "0xc548",
+                "idVendor": "0x046d"
+            },
+            {
+                "USB_path": "/4",
+                "idProduct": "0x4545",
+                "idVendor": "0x04d9"
+            },
+            {
+                "USB_path": "/24",
+                "idProduct": "0x3074",
+                "idVendor": "0x174c"
+            },
+            {
+                "USB_path": "/25",
+                "idProduct": "0x3074",
+                "idVendor": "0x174c"
+            },
+            {
+                "USB_path": "/12",
+                "idProduct": "0x0c22",
+                "idVendor": "0x1b1c"
+            },
+            {
+                "USB_path": "/8",
+                "idProduct": "0x2074",
+                "idVendor": "0x174c"
+            },
+            {
+                "USB_path": "/9",
+                "idProduct": "0x2074",
+                "idVendor": "0x174c"
+            },
+            {
+                "USBMode": 3,
+                "USB_path": "/24/3",
+                "bDescriptorType": 1,
+                "bDeviceProtocol": 1,
+                "bLength": 18,
+                "bMaxPacketSize0": 9,
+                "bNumConfigurations": 1,
+                "bcdDevice": "1.0",
+                "bcdUSB": "3.0",
+                "bcdUSBClass": 239,
+                "bcdUSBSubClass": 2,
+                "busNumber": 1,
+                "device": "ZED mini",
+                "iManufacturer": 1,
+                "iProduct": 2,
+                "iSerial": 0,
+                "idProduct": "0xf682",
+                "idVendor": "0x2b03"
+            },
+            {
+                "USBMode": 2,
+                "USB_path": "/8/3",
+                "bDescriptorType": 1,
+                "bDeviceProtocol": 0,
+                "bLength": 18,
+                "bMaxPacketSize0": 64,
+                "bNumConfigurations": 1,
+                "bcdDevice": "2.5",
+                "bcdUSB": "2.0",
+                "bcdUSBClass": 0,
+                "bcdUSBSubClass": 0,
+                "busNumber": 1,
+                "device": "ZED mini MCU",
+                "iManufacturer": 1,
+                "iProduct": 2,
+                "iSerial": 3,
+                "idProduct": "0xf681",
+                "idVendor": "0x2b03"
+            },
+            {
+                "USB_path": "/13",
+                "idProduct": "0x01a2",
+                "idVendor": "0x26ce"
+            },
+            {
+                "USB_path": "/14",
+                "idProduct": "0x0033",
+                "idVendor": "0x8087"
+            },
+            {
+                "USBMode": 3,
+                "USB_path": "/24/3",
+                "bDescriptorType": 1,
+                "bDeviceProtocol": 1,
+                "bLength": 18,
+                "bMaxPacketSize0": 9,
+                "bNumConfigurations": 1,
+                "bcdDevice": "1.0",
+                "bcdUSB": "3.0",
+                "bcdUSBClass": 239,
+                "bcdUSBSubClass": 2,
+                "busNumber": 1,
+                "device": "ZED mini",
+                "iManufacturer": 1,
+                "iProduct": 2,
+                "iSerial": 0,
+                "idProduct": "0xf682",
+                "idVendor": "0x2b03"
+            }
+        ],
+        "USBMode": 3,
+        "ZED Camera Module Detected": 63106,
+        "ZED MCU Module Detected": 63105,
+        "ZEDDetected": true,
+        "captureDevices": [
+        ],
+        "controllers": [
+            {
+                "CompatibleIDs": "",
+                "Description": "USB ��� �� (USB 3.0)",
+                "DeviceName": "",
+                "Driver": "{36fc9e60-c465-11cf-8056-444553540000}\\0001",
+                "Location": "",
+                "Manufacturer": "(\u0019� USB ��)",
+                "Name": "USB",
+                "PhysicalName": "\\Device\\USBPDO-0"
+            },
+            {
+                "CompatibleIDs": "PCI\\VEN_8086&DEV_7A60&REV_11",
+                "Description": "USB xHCI ��۹� �������",
+                "DeviceName": "Intel(R) USB 3.20 eXtensible Host Controller - 1.20 (Microsoft)",
+                "Driver": "{36fc9e60-c465-11cf-8056-444553540000}\\0000",
+                "Location": "PCI й 0, �Ф� 20, _� 0",
+                "Manufacturer": "N( USB xHCI ۹� �������",
+                "Name": "PCI",
+                "PhysicalName": "\\Device\\NTPNP_PCI0003"
+            },
+            {
+                "CompatibleIDs": "USB\\USB30_HUB",
+                "Description": "N( SuperSpeed USB ��",
+                "DeviceName": "",
+                "Driver": "{36fc9e60-c465-11cf-8056-444553540000}\\0002",
+                "Location": "Port_#0024.Hub_#0001",
+                "Manufacturer": "(\u0019� USB ��)",
+                "Name": "USB",
+                "PhysicalName": "\\Device\\USBPDO-1"
+            },
+            {
+                "CompatibleIDs": "USB\\USB20_HUB",
+                "Description": "N( USB ��",
+                "DeviceName": "",
+                "Driver": "{36fc9e60-c465-11cf-8056-444553540000}\\0004",
+                "Location": "Port_#0008.Hub_#0001",
+                "Manufacturer": "(\u0019� USB ��)",
+                "Name": "USB",
+                "PhysicalName": "\\Device\\USBPDO-8"
+            }
+        ],
+        "valid": [
+            "<b>USB Bandwidth: </b> OK"
+        ]
+    },
+    "Graphics Card": {
+        "deviceCount": 1,
+        "deviceDriverVersion": 12090,
+        "devices": [
+            {
+                "arch": "Ada Lovelace",
+                "computeCapability": "8.9",
+                "cores": 16384,
+                "name": "NVIDIA GeForce RTX 4090",
+                "totalMemoryBytes": "25756696576",
+                "totalMemoryMB": 24563.5
+            }
+        ],
+        "initResult": 0,
+        "valid": [
+            "<b>Graphics card: </b> NVIDIA GeForce RTX 4090"
+        ]
+    },
+    "Processor": {
+        "OS": "Windows 10 FallCreators",
+        "avxSupported": true,
+        "coreCount": "24",
+        "cpu": "13th Gen Intel(R) Core(TM) i9-13900K",
+        "datetime": "2025-07-30 20:11:14",
+        "hyperThreading": "1",
+        "motherboard": ", ",
+        "ramCapacity": "127.765",
+        "ramUsage": "0",
+        "ramUsed": "8.47815",
+        "threadCount": "32",
+        "valid": [
+            "<b>Processor: </b> 13th Gen Intel(R) Core(TM) i9-13900K"
+        ]
+    },
+    "ZED SDK": {
+        "CUDA Toolkit version": "V12.8.93 -->located in C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8/bin/nvcc.exe",
+        "CUDA loading": false,
+        "ZED SDK Version (Diag)": "5.0.3",
+        "ZED SDK Version (RT)": "5.0.3",
+        "ai": {
+            "checkAI": true,
+            "cudaVersion": 12080,
+            "tensorVersion": 100900
+        },
+        "binFiles": [
+            "nvinfer_10.dll",
+            "nvinfer_builder_resource_10.dll",
+            "nvinfer_dispatch_10.dll",
+            "nvinfer_lean_10.dll",
+            "nvinfer_plugin_10.dll",
+            "nvinfer_vc_plugin_10.dll",
+            "nvonnxparser_10.dll",
+            "sl_ai64.dll",
+            "sl_zed64.dll",
+            "zlibwapi.dll"
+        ],
+        "driverVersion": "576.57",
+        "drivervDllVersion": "32.0.15.7657",
+        "resourcesFiles": [
+            "objects_performance_3.2.model",
+            "objects_performance_3.2.model_optimized-fbcbw-1-89-12080-100900-25-384-73728-48-100-512-128-00",
+            "w100900_timing_cache"
+        ],
+        "resourcesFilesExpected": [
+            "objects_performance_3.2"
+        ],
+        "runtimeDllVersion": 12080,
+        "valid": [
+            "<b>ZED SDK version:</b> 5.0.3",
+            "<b>CUDA version:</b> V12.8.93"
+        ]
+    }
+}
