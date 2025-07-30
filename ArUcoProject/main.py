@@ -27,7 +27,6 @@ point_3D = np.array(
 app.estimator.set_3D_points(point_3D)
 
 # 3次元モデルの設定
-# model_filename = "./mqo/bana/mega-fushigibana.mqo"
 model_filename = "./mqo/open_red_box.mqo"
 model_scale = 1
 app.use_normal = False
