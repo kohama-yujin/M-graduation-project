@@ -4,14 +4,15 @@ import time
 import struct
 
 # UDP設定
-ip = "133.15.35.66"  # 受信側のIPアドレス
+# ip = "192.168.137.47" # 受信側のIPアドレス（gpu_win接続時）
+# ip = "133.15.35.66"  # 受信側のIPアドレス
 # ip = "192.168.2.155"  # 受信側のIPアドレス
-# ip = "127.0.0.1"  # ローカルアドレス
+ip = "127.0.0.1"  # ローカルアドレス
 port = 12345  # 受信側と合わせる
 CHUNK_SIZE = 4096  # 4KBずつ送信
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-cap = cv2.VideoCapture(1)  # カメラ起動
+cap = cv2.VideoCapture(0)  # カメラ起動
 
 try:
     while True:
@@ -19,17 +20,8 @@ try:
         if not ret:
             break
 
-        # VideoCaptureは8bitが限界
-        # 本来の16bitを8bitに圧縮して取得（重なる）
-        # 上位8bit：左目のグレイスケール
-        # 下位8bit：右目のBayer
-        unit8 = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-
-        # Bayer補間でカラー化
-        color = cv2.cvtColor(unit8, cv2.COLOR_BAYER_GB2BGR)
-
         # JPEG圧縮
-        _, encoded_img = cv2.imencode(".jpg", color)
+        _, encoded_img = cv2.imencode(".jpg", frame)
         data = encoded_img.tobytes()
 
         # パケット数を先に送信
